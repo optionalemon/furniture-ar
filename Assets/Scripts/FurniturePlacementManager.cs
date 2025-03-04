@@ -27,7 +27,6 @@ public class FurniturePlacementManager : MonoBehaviour
         {
             int index = i; // Needed for closure
             furnitureButtons[i].onClick.AddListener(() => SelectFurniture(index));
-
         }
 
         if (deleteButton != null)
@@ -35,9 +34,6 @@ public class FurniturePlacementManager : MonoBehaviour
             deleteButton.onClick.AddListener(DeleteSelectedFurniture);
             deleteButton.gameObject.SetActive(false); // Hide initially
         }
-
-        raycastManager = GetComponent<ARRaycastManager>();
-        planeManager = GetComponent<ARPlaneManager>();
     }
 
     void Update()
@@ -94,16 +90,12 @@ public class FurniturePlacementManager : MonoBehaviour
 
             FurnitureController controller = currentFurniture.GetComponent<FurnitureController>();
 
-
             // Check for potential collisions
             if (!WillCollide(currentFurniture))
             {
-                Debug.Log("No collision detected");
-
                 // Show visual feedback for no collision
                 if (controller != null)
                 {  
-                    Debug.Log("Setting no collision");
                     controller.SetNoCollision();
                 }
                 if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -116,7 +108,7 @@ public class FurniturePlacementManager : MonoBehaviour
                 // Show visual feedback for collision
                 if (controller != null)
                 {
-                    controller.SetNoCollision();
+                    controller.SetCollision();
                 }
             }
         }
@@ -164,11 +156,7 @@ public class FurniturePlacementManager : MonoBehaviour
                     deleteButton.gameObject.SetActive(true);
                 }
 
-                // Double tap to enter repositioning mode
-                if (Input.GetTouch(0).tapCount >= 2)
-                {
-                    StartRepositioning();
-                }
+                StartRepositioning();
             }
         }
         else
@@ -188,7 +176,7 @@ public class FurniturePlacementManager : MonoBehaviour
         FurnitureController controller = selectedFurniture.GetComponent<FurnitureController>();
         if (controller != null)
         {
-            controller.SetupForRepositioning();
+            controller.SetupForPlacement();
         }
     }
 
@@ -208,12 +196,15 @@ public class FurniturePlacementManager : MonoBehaviour
             Vector3 originalPosition = selectedFurniture.transform.position;
             selectedFurniture.transform.position = newPosition;
 
+            FurnitureController controller = selectedFurniture.GetComponent<FurnitureController>();
+
             if (!WillCollide(selectedFurniture))
             {
                 // Visual feedback
-                selectedFurniture.GetComponent<Renderer>().material.color = Color.white;
-
-                // Confirm new position on tap
+                if (controller != null)
+                {
+                    controller.SetNoCollision();
+                }
                 if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     ConfirmRepositioning();
@@ -223,7 +214,10 @@ public class FurniturePlacementManager : MonoBehaviour
             {
                 // Reset position and show collision feedback
                 selectedFurniture.transform.position = originalPosition;
-                selectedFurniture.GetComponent<Renderer>().material.color = Color.red;
+                if (controller != null)
+                {
+                    controller.SetCollision();
+                }
             }
 
             // Re-add to placed list
