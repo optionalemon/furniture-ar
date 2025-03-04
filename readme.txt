@@ -1,5 +1,5 @@
 Notes
--   Turn the phone screen around to detect plane, may take a while to load before we can put any furniture.
+-   Move the phone screen around to detect plane, may take a while to load and show the planes available before we can put any furniture.
 -   Implemented using iOS not sure if it will be functional in Android.
 -   Please find me at E0772330@u.nus.edu if any issue encountered. My teammate has dropped this module TT
 
