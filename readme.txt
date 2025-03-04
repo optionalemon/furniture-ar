@@ -1,6 +1,7 @@
 Notes
-1. Turn the phone screen around to detect plane, may take a while to load before we can put any furniture.
-2. Implemented using iOS not sure if it will be functional in Android.
+-   Turn the phone screen around to detect plane, may take a while to load before we can put any furniture.
+-   Implemented using iOS not sure if it will be functional in Android.
+-   Please find me at E0772330@u.nus.edu if any issue encountered. My teammate has dropped this module TT
 
 How to play our game
 0. Collision: Furniture being translucent red.
@@ -13,6 +14,10 @@ How to play our game
 2. To relocate furniture:
 -   Click on the existing furniture in the scene.
 -   Same process as putting furniture.
+
+3. To delete furniture:
+-   Click on the existing furniture in the scene.
+-   Click the red 'Delete" button appeared on the bottom center of the canvas.
 
 Downloaded Packages
 1. Furniture unity package provided.
