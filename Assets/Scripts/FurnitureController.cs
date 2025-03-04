@@ -5,8 +5,6 @@ public class FurnitureController : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material selectedMaterial;
     [SerializeField] private Material placementMaterial;
-    [SerializeField] private Material repositioningMaterial;
-
     [SerializeField] private Material noCollisionMaterial;
     [SerializeField] private Material collisionMaterial;
     
@@ -95,24 +93,7 @@ public class FurnitureController : MonoBehaviour
             }
         }
     }
-    
-    public void SetupForRepositioning()
-    {
-        // Visual feedback for repositioning mode
-        if (repositioningMaterial != null)
-        {
-            foreach (Renderer renderer in renderers)
-            {
-                renderer.material = repositioningMaterial;
-            }
-        }
-        
-        // Enable trigger for collision detection
-        if (furnitureCollider != null)
-        {
-            furnitureCollider.isTrigger = true;
-        }
-    }
+
     
     private void AdjustColliderToMesh()
     {
