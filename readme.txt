@@ -3,7 +3,7 @@ Notes
 -   Implemented using iOS not sure if it will be functional with Android.
 -   Please find me at E0772330@u.nus.edu if any issue encountered. My teammate has dropped this module so I thought would be better to do it myself rather than troubling her T.T
 
-How to play our game
+How to play the furniture AR game
 0. Collision: Furniture being translucent red.
 
 1. To put furniture:
