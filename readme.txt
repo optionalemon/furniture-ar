@@ -1,13 +1,14 @@
 Notes
--   Move the phone screen around to detect plane, may take a while to load and show the planes available before we can put any furniture.
+-   When we first initialize the app, try to move the phone screen around to detect planes, may take a while to load and show the planes before we can put any furniture.
 -   Implemented using iOS not sure if it will be functional with Android.
 -   Please find me at E0772330@u.nus.edu if any issue encountered. My teammate has dropped this module so I thought would be better to do it myself rather than troubling her T.T
 
 How to play the furniture AR game
+
 0. Collision: Furniture being translucent red.
 
 1. To put furniture:
--   Click one of the image below to preview the furniture placement in translucent blue. 
+-   Click one of the image in the tab UI at bottom of the screen, a preview will appear in the AR view.
 -   Once the preview turns to translucent green, click anywhere (except the UI interface) to put the furniture into the scene.
 
 2. To relocate furniture:
