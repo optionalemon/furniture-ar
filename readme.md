@@ -31,6 +31,3 @@ This project is an **Augmented Reality (AR) furniture placement game** developed
 ## 📦 Downloaded Packages
 1. 📦 **Furniture Unity Package** (provided).
 2. 🆓 **Pixel Font**: [Thaleah Free Pixel Font](https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059) → Used as the **main font** for this game.
-
----
-🛠 Developed using **Meta Quest** and **Unity** 🚀
